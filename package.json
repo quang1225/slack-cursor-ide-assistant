@@ -1,0 +1,27 @@
+{
+  "name": "slack-cursor-ide-assistant",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "quang1225",
+  "email": "quang1225@gmail.com",
+  "description": "A Slack bot that summarize requirements in a Slack thread and forwards messages to Cursor editor's chat (Agent mode) interface on macOS. This bot runs locally (for fast codebase indexing). Output is a Merge Request with analytics.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test-cursor": "node src/test-cursor.js"
+  },
+  "dependencies": {
+    "@slack/bolt": "^4.4.0",
+    "applescript": "^1.0.0",
+    "dotenv": "^17.2.1"
+  },
+  "keywords": [
+    "slack",
+    "bot",
+    "cursor",
+    "macos"
+  ],
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
