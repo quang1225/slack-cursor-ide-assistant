@@ -11,6 +11,10 @@ A Slack bot that summarize requirements in a Slack thread and forwards messages 
 - 🍎 Native macOS integration using AppleScript
 - 📝 Formatted messages with sender and channel info
 
+## RFC
+
+[https://docs.google.com/document/d/1PqM_IaivSpb4itCDbPHWXmEBy2cmSdBJxUopteU1XSw](https://docs.google.com/document/d/1PqM_IaivSpb4itCDbPHWXmEBy2cmSdBJxUopteU1XSw)
+
 ## Quick Start 🚀
 
 Get your Slack-Cursor bot running in 5 minutes!
