@@ -4,7 +4,7 @@ A Slack bot that summarize requirements in a Slack thread and forwards messages 
 
 ## Demo Video
 
-[![Demo Video](https://img.youtube.com/vi/JlEtLC_MS3s/0.jpg)](https://www.youtube.com/watch?v=JlEtLC_MS3s)
+[![Demo Video](https://img.youtube.com/vi/RGTW62ipMY0/0.jpg)](https://www.youtube.com/watch?v=RGTW62ipMY0)
 
 ## Features
 
