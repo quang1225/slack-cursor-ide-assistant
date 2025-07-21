@@ -2,6 +2,10 @@
 
 A Slack bot that summarize requirements in a Slack thread and forwards messages to Cursor editor's chat (Agent mode) interface on macOS. This bot runs locally (for fast codebase indexing). Output is a Merge Request with analytics.
 
+## Demo Video
+
+[![Demo Video](https://img.youtube.com/vi/JlEtLC_MS3s/0.jpg)](https://www.youtube.com/watch?v=JlEtLC_MS3s)
+
 ## Features
 
 - 🤖 Forward Slack messages to Cursor's AI chat (Agent mode)
