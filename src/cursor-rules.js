@@ -14,10 +14,21 @@ You are processing messages from a Slack AI Assistant that forwards user request
 - Before starting any MR work:
   1. **Stash any current changes** (if any):
      'git stash'
-  2. **Checkout the target branch** (IMPORTANT - checkout the exact branch name):
-     'git checkout ${process.env.GITLAB_MR_TARGET_BRANCH}'
-  3. **Pull the latest changes**:
+  2. **Check if MR already exists** for this Jira ticket:
+     - If MR exists: Checkout to the current branch "bot.quang.lehong/{jira-ticket-id}" and pull latest changes
+     - If no MR exists: Checkout the target branch and create new branch
+  3. **Checkout the appropriate branch**:
+     - For existing MR: 'git checkout bot.quang.lehong/{jira-ticket-id}'
+     - For new MR: 'git checkout ${process.env.GITLAB_MR_TARGET_BRANCH}'
+  4. **Pull the latest changes**:
      'git pull'
+
+## Commit Message Format
+- **ALL commit messages** must follow this format:
+  '[AI generated] [<jira-ticket-id>] <short-description>'
+- Examples:
+  - '[AI generated] [CRO-123] Add user authentication system'
+  - '[AI generated] [PROJ-456] Fix navigation bug in dashboard'
 
 ## Project Details
 - Project URL: ${process.env.GITLAB_PROJECT_URL}
@@ -50,8 +61,10 @@ You are processing messages from a Slack AI Assistant that forwards user request
     [Link to the Slack thread]
     '
   - **{labels}**:
-    - Add ['ai-assisted::cursor-ai'${process.env.GITLAB_MR_LABEL ? `, ${process.env.GITLAB_MR_LABEL}` : ''}] label to the MR
-  - **{assignee_ids}**: Detect the last mentioned user in the message (Slack User ID), convert the it to GitLab User ID and add to the MR
+    - Add ['ai-assisted::cursor-ai'${
+      process.env.GITLAB_MR_LABEL ? `, ${process.env.GITLAB_MR_LABEL}` : ''
+    }] label to the MR
+  - **{assignee_ids}**: **ALWAYS** keep GitLab MR assignee from the init thread message. Look for the pattern "Please wait, @{assignee-user-name} will handle your request soon" and convert the assignee-user-name to GitLab User ID. **Fallback**: If the assignee cannot be detected in the initial thread message, assign the GitLab MR assignee to the person who mentioned the bot.
   - **{target_branch}**: <GITLAB_MR_TARGET_BRANCH>
 
 ## Response Format
@@ -96,4 +109,4 @@ https://demo.example.com/feature-branch (available after the pipeline in the MR 
 - Always reply to the original Slack thread using the provided channel_id and thread_ts
 - Include working links to the MR and demo
 - Keep responses concise but informative
-- If something fails, explain what went wrong and next steps`; 
+- If something fails, explain what went wrong and next steps`

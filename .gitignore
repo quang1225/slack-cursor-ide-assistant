@@ -72,4 +72,6 @@ logs
 # Backup files
 *.backup
 *.bak
-*.tmp 
+*.tmp
+
+pnpm-lock.yaml
