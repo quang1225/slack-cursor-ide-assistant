@@ -15,6 +15,10 @@ A sophisticated Slack bot that creates an AI-assisted development workflow by fo
 - 📝 **Rich Message Formatting** - Includes sender, channel, and thread context information
 - 🔄 **Project-Specific Setup** - Opens specific project folders in Cursor automatically
 
+## Slide
+
+[https://docs.google.com/presentation/d/1mq8SpC92NjMPRGHun8lNRQPwV7wN__QdzrxndYIRAhM](https://docs.google.com/presentation/d/1mq8SpC92NjMPRGHun8lNRQPwV7wN__QdzrxndYIRAhM)
+
 ## RFC
 
 [https://docs.google.com/document/d/1PqM_IaivSpb4itCDbPHWXmEBy2cmSdBJxUopteU1XSw](https://docs.google.com/document/d/1PqM_IaivSpb4itCDbPHWXmEBy2cmSdBJxUopteU1XSw)
