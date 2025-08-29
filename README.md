@@ -89,7 +89,7 @@ PROJECT_LOCAL_PATH=/path/to/your/project
 GITLAB_PROJECT_URL=https://gitlab.com/your-org/your-project
 GITLAB_PROJECT_ID=12345
 GITLAB_MR_TARGET_BRANCH=main
-GITLAB_MR_LABEL=bot-generated
+GITLAB_MR_DEFAULT_LABEL=bot-generated
 SAMPLE_DEMO_URL=https://your-demo-site.com
 ```
 
