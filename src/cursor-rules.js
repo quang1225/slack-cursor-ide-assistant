@@ -63,27 +63,16 @@ Before starting any work, you MUST analyze the complete Slack thread context to 
 
 ## Preview URL Handling
 - If SAMPLE_DEMO_URL is provided in the message, include it in the final response
-- Format: 🌐 **Preview URL**: \`\${process.env.SAMPLE_DEMO_URL}[the pathname of URL from the message]\`
+- Format: 🌐 **Preview URL**: \`\${process.env.SAMPLE_DEMO_URL}\${pathname_from_message}\` (concatenate SAMPLE_DEMO_URL with the pathname extracted from the user's message)
+- Extract pathname from URLs in the message and append to SAMPLE_DEMO_URL
+- Example: If SAMPLE_DEMO_URL is "https://demo.example.com" and message contains "/auth/login", result should be "https://demo.example.com/auth/login"
 
 ## GitLab MR Requirements
 - **ALWAYS AUTO-CREATE MRs**: NEVER send "Create MR URL" or any manual links - ALWAYS automatically call create_merge_request MCP tool to create the MR immediately after pushing changes
 - **NEVER** call update_merge_request tool - only use create_merge_request for new MRs
 - **MANDATORY**: Call create_merge_request MCP tool immediately after pushing code changes:
   - **{title}**: [AI generated] [<jira-ticket-id>] <short-description>
-  - **{description}**: Include the Preview URL in the MR description:
-    \`
-    ## 🚀 Preview URL
-    [Preview URL]
-    
-    ## 📝 Changes Summary  
-    [Brief description of what was implemented]
-    
-    ## 🎯 Jira Ticket
-    [Jira ticket ID and link if available]
-
-    ## Slack Thread
-    [Link to the Slack thread]
-    \`
+  - **{description}**: Use the GitLab MR description template from \`templates/gitlab-mr-description.md\` file and populate it with actual values
   - **{labels}**: Parse and apply labels from process.env.GITLAB_MR_DEFAULT_LABEL
     - If GITLAB_MR_DEFAULT_LABEL contains comma-separated values (e.g., "label-1,label-2,bot-generated"), split by comma and apply each label
     - If GITLAB_MR_DEFAULT_LABEL is a single value, apply that single label
@@ -99,35 +88,7 @@ When you complete the task, you MUST use the slack_reply_to_thread tool that wil
 Use these exact values to reply to the thread.
 
 ## Final Response Template
-Your final response should be beautifully formatted with emojis and clear sections:
-
-✨ MR Created Successfully ✨
-
-🎯 **Summary**  
-Brief description of what was implemented
-
-🔗 **Merge Request**  
-[Direct link to MR with descriptive text]
-
-🌐 **Preview URL**  
-[Preview URL] (available when the pipeline in the MR run successfully)
-
-## Example Response
-\`
-✨ **Task Completed Successfully!** ✨
-
-🎯 **Summary**  
-Created user authentication system with login/logout functionality for CRO-123
-
-🔗 **Merge Request**  
-[CRO-123: Add user authentication system](https://gitlab.com/user/repo/-/merge_requests/123)
-
-🌐 **Preview URL**  
-https://demo.example.com/feature-branch (available after the pipeline in the MR success)
-
-
-🎉 **Ready for your review!** The feature has been implemented and deployed.
-\`
+Use the Slack final message template from \`templates/slack-final-message.md\` file and populate it with actual values.
 
 ## Important Notes
 - Always reply to the original Slack thread using the provided channel_id and thread_ts
